@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Drone Check">
+<meta name="theme-color" content="#0a0d12">
+<title>Drone Pre-Flight</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background: #0a0d12;
+    color: #e0e8f0;
+    padding-bottom: 60px;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1 {
+    text-align: center;
+    padding: 50px 16px 6px;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0d1b2a, #1a2a3a);
+  }
+  .sub {
+    text-align: center;
+    font-size: 0.65rem;
+    color: #7a9bb0;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 16px 18px;
+    background: linear-gradient(135deg, #0d1b2a, #1a2a3a);
+    border-bottom: 1px solid #1e3a4a;
+    margin-bottom: 16px;
+  }
+  .section {
+    max-width: 600px;
+    margin: 0 auto 12px;
+    padding: 0 14px;
+  }
+  .section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 10px 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title span { opacity: 0.9; }
+  .card {
+    background: #0d1824;
+    border-radius: 10px;
+    border: 1px solid #1e3040;
+    overflow: hidden;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 14px;
+    border-bottom: 1px solid #111d26;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  label:last-child { border-bottom: none; }
+  label:active { background: rgba(255,255,255,0.03); }
+  input[type="checkbox"] { display: none; }
+  .box {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 5px;
+    border: 2px solid #2a4050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    color: #0a0d12;
+    transition: all 0.15s;
+  }
+  .text {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: #c8d8e8;
+  }
+  /* Checked state per section colour */
+  .s1 input:checked ~ .box { background: #00C9FF; border-color: #00C9FF; }
+  .s2 input:checked ~ .box { background: #FF6B35; border-color: #FF6B35; }
+  .s3 input:checked ~ .box { background: #FFD700; border-color: #FFD700; }
+  .s4 input:checked ~ .box { background: #A8FF78; border-color: #A8FF78; }
+  .s5 input:checked ~ .box { background: #DA8FFF; border-color: #DA8FFF; }
+  .s6 input:checked ~ .box { background: #FF8FAB; border-color: #FF8FAB; }
+  input:checked ~ .box::after { content: '✓'; }
+  input:checked ~ .text { color: #4a6a7a; text-decoration: line-through; }
+  .reset {
+    text-align: center;
+    padding: 28px 16px;
+  }
+  .reset button {
+    background: transparent;
+    border: 1px solid #2a4050;
+    color: #7a9bb0;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .reset button:active { border-color: #00C9FF; color: #00C9FF; }
+  .emoji { font-size: 1.8rem; display: block; text-align: center; padding-top: 48px; background: linear-gradient(135deg, #0d1b2a, #1a2a3a); }
+</style>
+</head>
+<body>
+
+<span class="emoji">🚁</span>
+<h1>Pre-Flight Checklist</h1>
+<div class="sub">Complete all checks before takeoff</div>
+
+<!-- 1. Weather -->
+<div class="section">
+  <div class="section-title" style="color:#00C9FF">🌤 <span>Weather &amp; Environment</span></div>
+  <div class="card">
+    <label class="s1"><input type="checkbox"><div class="box"></div><span class="text">Wind speed under 25 mph / 40 km/h</span></label>
+    <label class="s1"><input type="checkbox"><div class="box"></div><span class="text">No rain, fog, or heavy cloud cover</span></label>
+    <label class="s1"><input type="checkbox"><div class="box"></div><span class="text">Visibility adequate (500m+ recommended)</span></label>
+    <label class="s1"><input type="checkbox"><div class="box"></div><span class="text">Temperature within drone operating range</span></label>
+    <label class="s1"><input type="checkbox"><div class="box"></div><span class="text">No lightning or severe weather forecast</span></label>
+  </div>
+</div>
+
+<!-- 2. Airspace -->
+<div class="section">
+  <div class="section-title" style="color:#FF6B35">🗺 <span>Airspace &amp; Regulations</span></div>
+  <div class="card">
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">Checked airspace restrictions (NOTAM / apps)</span></label>
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">Not within 5km of an airport or helipad</span></label>
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">No restricted or controlled zones nearby</span></label>
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">Flying within permitted altitude (120m / 400ft)</span></label>
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">Obtained necessary permits or authorizations</span></label>
+    <label class="s2"><input type="checkbox"><div class="box"></div><span class="text">Aware of local laws and regulations</span></label>
+  </div>
+</div>
+
+<!-- 3. Battery -->
+<div class="section">
+  <div class="section-title" style="color:#FFD700">⚡ <span>Power &amp; Battery</span></div>
+  <div class="card">
+    <label class="s3"><input type="checkbox"><div class="box"></div><span class="text">Drone battery fully charged (above 90%)</span></label>
+    <label class="s3"><input type="checkbox"><div class="box"></div><span class="text">Controller / remote battery fully charged</span></label>
+    <label class="s3"><input type="checkbox"><div class="box"></div><span class="text">Phone / tablet battery adequate</span></label>
+    <label class="s3"><input type="checkbox"><div class="box"></div><span class="text">Spare batteries charged and available</span></label>
+    <label class="s3"><input type="checkbox"><div class="box"></div><span class="text">Batteries show no swelling or damage</span></label>
+  </div>
+</div>
+
+<!-- 4. Hardware -->
+<div class="section">
+  <div class="section-title" style="color:#A8FF78">🔧 <span>Hardware Inspection</span></div>
+  <div class="card">
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">All propellers securely fitted, no cracks</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">Propellers spin freely, no obstructions</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">Camera lens clean and undamaged</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">Gimbal moves freely, no visible damage</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">Landing gear intact and secure</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">No loose screws, panels, or components</span></label>
+    <label class="s4"><input type="checkbox"><div class="box"></div><span class="text">SD card inserted (if applicable)</span></label>
+  </div>
+</div>
+
+<!-- 5. Software -->
+<div class="section">
+  <div class="section-title" style="color:#DA8FFF">📡 <span>Software &amp; Connectivity</span></div>
+  <div class="card">
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">Drone firmware is up to date</span></label>
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">Flight app is up to date</span></label>
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">GPS signal acquired (6+ satellites)</span></label>
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">Compass calibrated if prompted</span></label>
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">Return-to-Home altitude set correctly</span></label>
+    <label class="s5"><input type="checkbox"><div class="box"></div><span class="text">Home point confirmed on map</span></label>
+  </div>
+</div>
+
+<!-- 6. Site & Safety -->
+<div class="section">
+  <div class="section-title" style="color:#FF8FAB">📍 <span>Site &amp; Safety</span></div>
+  <div class="card">
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">Launch area clear of people and obstacles</span></label>
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">Bystanders informed and at safe distance</span></label>
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">No overhead power lines nearby</span></label>
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">Emergency landing zone identified</span></label>
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">Will maintain visual line of sight</span></label>
+    <label class="s6"><input type="checkbox"><div class="box"></div><span class="text">Not flying over crowds or moving vehicles</span></label>
+  </div>
+</div>
+
+<div class="reset">
+  <button onclick="if(confirm('Reset all checks?')){var c=document.querySelectorAll('input[type=checkbox]');for(var i=0;i<c.length;i++)c[i].checked=false}">↺ Reset Checklist</button>
+</div>
+
+</body>
+</html>
